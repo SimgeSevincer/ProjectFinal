@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#43E9E2F3">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="sans-serif"
+        android:text="İsveç Diyeti Nedir?"
+        android:textColor="#D84214"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961"
+        tools:ignore="MissingConstraints" />
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="410dp"
+        android:layout_height="346dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81"
+        tools:ignore="MissingConstraints">
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="#0CE9ECE0"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="İsveç diyeti, karbonhidrat alımını azaltıp,
+             protein alımını arttırarak obezite oranını düşürmeyi amaçlayan, İsveç Ulusal Gıda İdaresi tarafından geliştirilmiş bir diyettir.
+              Bu diyette beslenme, kök sebzeler, kepekli tahıllar ve balık gibi İsveç’te geleneksel olarak sofralarda kullanılan işlenmemiş gıdalara odaklanır.İsveç diyeti egzersiz ile birlikte
+              yapıldığında uygulanan diyet çok daha iyi sonuç verir. Buna göre, günde 30 dakika olacak şekilde spor yapılması planlanabilir. Vücut düzenli egzersize alışık değil ise, günde 5 dakika
+               ile başlayıp, vücut adapte olmaya başladıktan sonra zaman içerisinde bu süre 30 dakika olacak şekilde düzenlenebilir.İsveç diyetinde temel prensip normalden daha az karbonhidrat alıp,,
+                13 gün boyunca daha fazla sağlıklı yağ tüketmek üzerinedir.
+               Bu sayede vücutta iltihap azalır, insülin seviyelerini de düşük tutmayı sağlayacağından kilo vermeyi kolaylaştırdığı gibi sağlıklı yağ tüketimine bağlı olarak enflamasyonu azaltıp, obezite
+               riskini minimize eder. Bu diyet programında ilk iki haftanızda yalnızca karbonhidrat veya yağ oranı düşük yiyecekler yenirken, protein açısından zengin yiyecekler de tüketilmelidir.
+Kahve ve çay(tatlandırıcı olmadan) gibi içecekler yalnızca belirtilen limitlerle tüketilmelidir
+Şeker diyette yer aldığı kadarı ile kullanılmalıdır
+Tuz tüketimi yapılmamalıdır
+Diyetin en az 3 ay ara ile tekrarlanmalıdır
+Öğünler için paylaşılan yemekler, öğünler arası değiştirilerek tüketilebilir
+En az 2 litre de su içilmesi gerekir.
+İkinci haftadan sonra, yüksek yağlı yiyeceklere bağlı kalmaya devam ederken, diyete düşük oranda olacak şekilde nişastalı karbonhidrat eklenebilir olacaktır."
+            android:textAlignment="center"
+            android:textColor="#0E0E0E"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDate2"
+            app:layout_constraintVertical_bias="1.0" />
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995"
+        app:menu="@menu/menu" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="126dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.966">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88769E48">
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="06.01.2024"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="208dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/diyet_isvec" />
+</androidx.constraintlayout.widget.ConstraintLayout>
