@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ArticleDetailFragment : Fragment() {
+    /*deneme*/
     private var _binding: FragmentArticleDetailBinding? = null
     private val binding get() = _binding!!
 
