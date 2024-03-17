@@ -26,6 +26,11 @@ class PostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.imageView1.setOnClickListener {
+            findNavController().navigate(R.id.action_postFragment_to_postAtmaFragment)
+        }
+
+
 
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView2
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
