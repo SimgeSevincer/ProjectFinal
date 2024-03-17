@@ -38,6 +38,10 @@ class SignInFragment : Fragment()  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.editTextDOB.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         binding.btnSignUp.setOnClickListener {
             val name = binding.editTextName.text.toString()
             val email =binding.editTextEmail.text.toString()
@@ -61,6 +65,26 @@ class SignInFragment : Fragment()  {
             //findNavController().navigate(R.id.action_signInFragment_to_loginFragment)
         }
 
+    }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
+                // Handle selected date
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                binding.editTextDOB.setText(selectedDate)
+            },
+            year,
+            month,
+            day
+        )
+        datePickerDialog.show()
     }
 
 
