@@ -32,8 +32,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="100dp"
             android:background="@color/pink"
-            android:scaleType="fitCenter"
-            android:onClick="onImageButtonClick" />
+            android:scaleType="fitCenter" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
