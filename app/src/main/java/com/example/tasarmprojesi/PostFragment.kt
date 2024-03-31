@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.tasarmprojesi.databinding.FragmentArticleBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tasarmprojesi.adapter.FeedRecylerAdapter
 import com.example.tasarmprojesi.databinding.FragmentPostBinding
 import com.example.tasarmprojesi.model.Post
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -15,6 +16,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
 
 
@@ -25,6 +27,8 @@ class PostFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db : FirebaseFirestore
     private lateinit var postArrayList : ArrayList<Post>
+
+    private lateinit var feedAdapter : FeedRecylerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +42,10 @@ class PostFragment : Fragment() {
         postArrayList= ArrayList<Post>()
 
         getData()
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        feedAdapter = FeedRecylerAdapter(postArrayList)
+        binding.recyclerView.adapter = feedAdapter
 
         return binding.root
     }
@@ -62,16 +70,21 @@ class PostFragment : Fragment() {
             }
             false
         }
+
+
     }
 
     private fun getData(){
-        db.collection("Posts").addSnapshotListener { value, error ->
+        db.collection("Posts").orderBy("date",
+            Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             if (error != null){
                 Toast.makeText(requireContext(),error.localizedMessage,Toast.LENGTH_LONG).show()
             }else{
                 if(value!=null){
                     if(!value.isEmpty){
                         val documents = value.documents
+
+                        postArrayList.clear()
 
                         for (document in documents){
                             val comment = document.get("comment") as String
@@ -83,6 +96,8 @@ class PostFragment : Fragment() {
                             val post = Post(useremail,comment,downloadUrl)
                             postArrayList.add(post)
                         }
+
+                        feedAdapter.notifyDataSetChanged()
                     }
                 }
             }

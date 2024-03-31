@@ -77,4 +77,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
 
+    implementation ("com.squareup.picasso:picasso:2.8")
+
 }
