@@ -1,3 +1,14 @@
 package com.example.tasarmprojesi.model
 
-data class Post(val email: String, val comment: String, val downloadUrl : String)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class Post(
+    var id: String = "",
+    val userEmail: String,
+    val comment: String,
+    val downloadUrl: String
+) : Parcelable {
+    constructor() : this("", "", "", "") // Varsayılan (parametresiz) kurucu metodu tanımla
+}

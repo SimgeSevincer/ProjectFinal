@@ -11,98 +11,84 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasarmprojesi.adapter.FeedRecylerAdapter
 import com.example.tasarmprojesi.databinding.FragmentPostBinding
 import com.example.tasarmprojesi.model.Post
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.firestore
-
 
 class PostFragment : Fragment() {
     private var _binding: FragmentPostBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var db : FirebaseFirestore
-    private lateinit var postArrayList : ArrayList<Post>
-
-    private lateinit var feedAdapter : FeedRecylerAdapter
+    private lateinit var db: FirebaseFirestore
+    private lateinit var postArrayList: ArrayList<Post>
+    private lateinit var feedAdapter: FeedRecylerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentPostBinding.inflate(inflater, container, false)
-
-        auth = Firebase.auth
-        db = Firebase.firestore
-
-        postArrayList= ArrayList<Post>()
-
-        getData()
-
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        feedAdapter = FeedRecylerAdapter(postArrayList)
-        binding.recyclerView.adapter = feedAdapter
-
+        initializeFirebase()
+        setupRecyclerView()
+        loadData()
         return binding.root
+    }
+
+    private fun initializeFirebase() {
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+    }
+
+    private fun setupRecyclerView() {
+        postArrayList = ArrayList()
+        feedAdapter = FeedRecylerAdapter(postArrayList)
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = feedAdapter
+        }
+    }
+
+    private fun loadData() {
+        db.collection("Posts").orderBy("date", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, exception ->
+                if (exception != null) {
+                    Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_LONG).show()
+                    return@addSnapshotListener
+                }
+                snapshot?.let { value ->
+                    postArrayList.clear()
+                    postArrayList.addAll(value.documents.mapNotNull { doc ->
+                        doc.toObject(Post::class.java)?.apply { id = doc.id }
+                    })
+                    feedAdapter.notifyDataSetChanged()
+                }
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupBottomNavigationView()
+    }
 
+    private fun setupBottomNavigationView() {
+        binding.bottomNavigationView2.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.ic_id -> {
+                    findNavController().navigate(R.id.action_postFragment_to_profileFragment)
+                    true
+                }
+                R.id.ic_home -> {
+                    findNavController().navigate(R.id.action_postFragment_to_homeFragment)
+                    true
+                }
+                else -> false
+            }
+
+        }
         binding.imageView1.setOnClickListener {
             findNavController().navigate(R.id.action_postFragment_to_postAtmaFragment)
         }
-
-
-
-        val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView2
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            if (item.itemId == R.id.ic_id) {
-                findNavController().navigate(R.id.action_postFragment_to_profileFragment)
-                return@setOnNavigationItemSelectedListener true
-            }else if(item.itemId == R.id.ic_home) {
-                findNavController().navigate(R.id.action_postFragment_to_homeFragment)
-                return@setOnNavigationItemSelectedListener true
-            }
-            false
-        }
-
-
-    }
-
-    private fun getData(){
-        db.collection("Posts").orderBy("date",
-            Query.Direction.DESCENDING).addSnapshotListener { value, error ->
-            if (error != null){
-                Toast.makeText(requireContext(),error.localizedMessage,Toast.LENGTH_LONG).show()
-            }else{
-                if(value!=null){
-                    if(!value.isEmpty){
-                        val documents = value.documents
-
-                        postArrayList.clear()
-
-                        for (document in documents){
-                            val comment = document.get("comment") as String
-                            val useremail = document.get("userEmail") as String
-                            val downloadUrl = document.get("downloadUrl") as String
-
-                            println(comment)
-
-                            val post = Post(useremail,comment,downloadUrl)
-                            postArrayList.add(post)
-                        }
-
-                        feedAdapter.notifyDataSetChanged()
-                    }
-                }
-            }
-        }
-
     }
 
     override fun onDestroyView() {

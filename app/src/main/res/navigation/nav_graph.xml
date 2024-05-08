@@ -100,6 +100,9 @@
         <action
             android:id="@+id/action_postFragment_to_postAtmaFragment"
             app:destination="@id/postAtmaFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -124,4 +127,9 @@
             android:id="@+id/action_postAtmaFragment_to_postFragment"
             app:destination="@id/postFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.example.tasarmprojesi.PostDetailFragment"
+        android:label="fragment_post_detail" />
+
 </navigation>

@@ -21,7 +21,7 @@ class ProfilRecylerAdapter (private  val profilpostList : ArrayList<Post>) : Rec
     }
 
     override fun onBindViewHolder(holder: ProfilpostHolder, position: Int) {
-        holder.binding.textView25.text=profilpostList.get(position).email
+        holder.binding.textView25.text=profilpostList.get(position).userEmail
         holder.binding.textView28.text=profilpostList.get(position).comment
         Picasso.get().load(profilpostList.get(position).downloadUrl).into(holder.binding.imageView25)
     }

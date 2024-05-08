@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasarmprojesi.adapter.ArticleAdapter
 import com.example.tasarmprojesi.databinding.FragmentArticleBinding
-import com.example.tasarmprojesi.model.Article
 import com.example.tasarmprojesi.model.ArticleData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
