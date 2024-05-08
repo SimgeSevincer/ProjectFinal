@@ -20,6 +20,8 @@ class FeedRecylerAdapter(private val postList: ArrayList<Post>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         val post = postList[position]
+        holder.binding.textView18.text = postList.get(position).userEmail
+
         holder.binding.textView19.text = post.comment
         Picasso.get().load(post.downloadUrl).into(holder.binding.imageView18)
 
