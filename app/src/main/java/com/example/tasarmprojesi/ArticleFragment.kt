@@ -1,15 +1,18 @@
 package com.example.tasarmprojesi
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tasarmprojesi.adapter.ArticleAdapter
 import com.example.tasarmprojesi.databinding.FragmentArticleBinding
-import com.example.tasarmprojesi.databinding.FragmentSkipBinding
+import com.example.tasarmprojesi.model.Article
+import com.example.tasarmprojesi.model.ArticleData
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 class ArticleFragment : Fragment() {
 
@@ -27,20 +30,30 @@ class ArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.constraint.setOnClickListener {
-            findNavController().navigate(R.id.action_articleFragment_to_articleDetailFragment)
-        }
+        // ArticleData sınıfından makaleleri al
+        val articleData = ArticleData(requireContext())
+        articleData.addArticlesToDb()
+        val articles = articleData.getArticlesFromDb()
+
+        // RecyclerView'ı ayarla
+        val layoutManager = LinearLayoutManager(requireContext())
+        binding.articleRecyclerView.layoutManager = layoutManager
+        val adapter = ArticleAdapter(articles)
+        binding.articleRecyclerView.adapter = adapter
+        // BottomNavigationView'da tıklama işlemleri
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView1
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            if (item.itemId == R.id.ic_id) {
-                findNavController().navigate(R.id.action_articleFragment_to_profileFragment)
-                return@setOnNavigationItemSelectedListener true
-            }else if(item.itemId == R.id.ic_home) {
-                findNavController().navigate(R.id.action_articleFragment_to_homeFragment)
-                return@setOnNavigationItemSelectedListener true
+            when (item.itemId) {
+                R.id.ic_id -> {
+                    findNavController().navigate(R.id.action_articleFragment_to_profileFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.ic_home -> {
+                    findNavController().navigate(R.id.action_articleFragment_to_homeFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> return@setOnNavigationItemSelectedListener false
             }
-
-            false
         }
     }
 
@@ -48,5 +61,4 @@ class ArticleFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

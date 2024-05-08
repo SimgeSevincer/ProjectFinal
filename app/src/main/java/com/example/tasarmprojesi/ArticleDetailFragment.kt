@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tasarmprojesi.databinding.FragmentArticleDetailBinding
 import com.example.tasarmprojesi.databinding.FragmentPostBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.squareup.picasso.Picasso
 
 
 class ArticleDetailFragment : Fragment() {
@@ -26,7 +27,18 @@ class ArticleDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val articleName = arguments?.getString("articleName")
+        val articleDescription = arguments?.getString("articleDescription")
+        val articleDate = arguments?.getString("articleDate")
+        val articleFavCount = arguments?.getInt("articleFavCount")
+        val articleImageUrl = arguments?.getString("articleImageUrl")
+        binding.articleName.text = articleName
+        binding.articleDescription.text = articleDescription
+        binding.articleDate.text = articleDate
+        binding.articleFavCount.text = articleFavCount.toString()
+        articleImageUrl?.let {
+            Picasso.get().load(it).into(binding.articleImage)
+        }
 
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
