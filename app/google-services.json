@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "475211071915",
-    "project_id": "tasarim-a892c",
-    "storage_bucket": "tasarim-a892c.appspot.com"
+    "project_number": "665842979709",
+    "project_id": "proje-4d936",
+    "storage_bucket": "proje-4d936.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:475211071915:android:1f6cd94b2e2cc3586e92ee",
+        "mobilesdk_app_id": "1:665842979709:android:64b05bd01226e344cc7214",
         "android_client_info": {
           "package_name": "com.example.tasarmprojesi"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCKvGu3cIEtwRNCgbcg5bEsdZ8krSKnOo8"
+          "current_key": "AIzaSyCEWTfDaDwRj_iNUlonsqvD2mABV3UqcOg"
         }
       ],
       "services": {
