@@ -79,15 +79,17 @@ class KullaniciDetayFragment : Fragment() {
         binding.editTextDOB.setOnClickListener {
             showDatePickerDialog()
         }
-
+        /*
         binding.radioGroupGender.setOnCheckedChangeListener { group, checkedId ->
             val selectedRadioButtonId = binding.radioGroupGender.checkedRadioButtonId
             val selectedRadioButton = binding.radioGroupGender.findViewById<RadioButton>(selectedRadioButtonId)
             val selectedOptionText = selectedRadioButton?.text.toString()
             println("Seçilen RadioButton ID'si: $selectedRadioButtonId")
             println("Seçilen seçenek: $selectedOptionText")
-        }
+        } */
 
+
+        /*
         binding.btnSignUp2.setOnClickListener {
 
             val uuid = UUID.randomUUID()
@@ -134,6 +136,61 @@ class KullaniciDetayFragment : Fragment() {
             //val action = kullaniciDetayFragmentDirections.actionKullaniciDetayFragmentToProfilFragment3()
             //Navigation.findNavController(it).navigate(action)
         }
+*/
+
+        binding.btnSignUp2.setOnClickListener {
+
+            val name = binding.editTextName.text.toString()
+            val dob = binding.editTextDOB.text.toString()
+            val height = binding.editTextHeight.text.toString()
+            val weight = binding.editTextWeight.text.toString()
+
+            // Boş alanları kontrol et ve gerekli mesajları göster
+            if (name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty()) {
+                Toast.makeText(requireContext(), "Tüm alanların doldurulması gerekmektedir!", Toast.LENGTH_SHORT).show()
+            } else {
+                val uuid = UUID.randomUUID()
+                val imageName = "$uuid.jpg"
+
+                val reference = storage.reference
+                val imageReference = reference.child("imageskullanici").child(imageName)
+
+                if (selectedPicture != null){
+                    imageReference.putFile(selectedPicture!!).addOnSuccessListener{
+
+                        val uploadPictureReference = storage.reference.child("imageskullanici").child(imageName)
+                        uploadPictureReference.downloadUrl.addOnSuccessListener {
+
+                            val downloadUrl = it.toString()
+                            if(auth.currentUser != null){
+                                val kullaniciMap = hashMapOf<String, Any>()
+                                kullaniciMap.put("downloadUrlk",downloadUrl)
+                                kullaniciMap.put("name",name)
+                                kullaniciMap.put("bdate",dob)
+                                kullaniciMap.put("height",height)
+                                kullaniciMap.put("weight",weight)
+                                kullaniciMap.put("userEmailk", auth.currentUser!!.email!!)
+                                kullaniciMap.put("date", Timestamp.now())
+
+                                firestore.collection("Kullanici").add(kullaniciMap).addOnSuccessListener {
+                                    findNavController().navigate(R.id.action_kullaniciDetayFragment_to_profileFragment)
+
+                                }.addOnFailureListener {
+                                    Toast.makeText(requireContext(),it.localizedMessage, Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        }
+
+                    }.addOnFailureListener {
+                        Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }
+
+
+
+
 
         binding.imageView.setOnClickListener {
             //openGallery()
