@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/skipFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/skipFragment"
@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_skipFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_skipFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_signInFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_kullaniciDetayFragment"
+            app:destination="@id/kullaniciDetayFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -131,5 +137,23 @@
         android:id="@+id/postDetailFragment"
         android:name="com.example.tasarmprojesi.PostDetailFragment"
         android:label="fragment_post_detail" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.tasarmprojesi.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_skipFragment"
+            app:destination="@id/skipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kullaniciDetayFragment"
+        android:name="com.example.tasarmprojesi.KullaniciDetayFragment"
+        android:label="fragment_kullanici_detay"
+        tools:layout="@layout/fragment_kullanici_detay" >
+        <action
+            android:id="@+id/action_kullaniciDetayFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
 </navigation>
