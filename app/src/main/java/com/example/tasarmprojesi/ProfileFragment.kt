@@ -27,8 +27,6 @@ class ProfileFragment : Fragment() {
     private lateinit var postArrayList: ArrayList<Post>
     private lateinit var profileAdapter: ProfilRecylerAdapter
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +34,6 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         initializeFirebase()
         setupRecyclerView()
-        //getDataA()
         loadData()
         return binding.root
     }
@@ -67,16 +64,12 @@ class ProfileFragment : Fragment() {
                         doc.toObject(Post::class.java)?.apply { id = doc.id }
                     } ?: emptyList())
                     profileAdapter.notifyDataSetChanged()
-
-
-
                 }
             }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupUserDetails()
         setupSignOut()
         setupBottomNavigationView()
@@ -85,7 +78,6 @@ class ProfileFragment : Fragment() {
     private fun setupUserDetails() {
         binding.textView34.text = auth.currentUser?.email
         getDataA()
-
     }
 
     private fun setupSignOut() {
@@ -95,22 +87,19 @@ class ProfileFragment : Fragment() {
         }
     }
 
-
-    private fun getDataA(){
-
+    private fun getDataA() {
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
 
-        db.collection("Kullanici").whereEqualTo("userEmailk",currentUserEmail).orderBy("date",
+        db.collection("Kullanici").whereEqualTo("userEmailk", currentUserEmail).orderBy("date",
             Query.Direction.DESCENDING).addSnapshotListener { value, error ->
-            if (error != null){
-                Toast.makeText(requireContext(),error.localizedMessage, Toast.LENGTH_LONG).show()
-            }else{
-                if(value!=null){
-                    if(!value.isEmpty){
+            if (error != null) {
+                Toast.makeText(requireContext(), error.localizedMessage, Toast.LENGTH_LONG).show()
+            } else {
+                if (value != null) {
+                    if (!value.isEmpty) {
                         val documents = value.documents
 
-
-                        for (document in documents){
+                        for (document in documents) {
                             val name = document.get("name") as String
                             val useremail = document.get("userEmailk") as String
                             val downloadUrl = document.get("downloadUrlk") as String
@@ -118,24 +107,19 @@ class ProfileFragment : Fragment() {
                             val height = document.get("height") as String
                             val weight = document.get("weight") as String
 
-                            println(name+"   "+useremail)
+                            println("$name   $useremail")
 
-                            val kullanici = Kullanici(useremail,downloadUrl,name,bdate,weight,height)
-                            //postArrayList.add(kullanici)
+                            val kullanici = Kullanici(useremail, downloadUrl, name, bdate, weight, height)
 
                             binding.textView34.text = name
-                            binding.textView33.text = bdate+" - "+weight+" - "+height
+                            binding.textView33.text = "$bdate - $weight - $height"
                             Picasso.get().load(downloadUrl).into(binding.imageView32)
                         }
-
-
                     }
                 }
             }
         }
-
     }
-
 
     private fun setupBottomNavigationView() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -148,8 +132,6 @@ class ProfileFragment : Fragment() {
             }
         }
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()
