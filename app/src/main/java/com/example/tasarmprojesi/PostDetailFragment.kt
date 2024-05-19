@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasarmprojesi.adapter.CommentsAdapter
 import com.example.tasarmprojesi.databinding.FragmentPostDetailBinding
 import com.example.tasarmprojesi.model.Comment
 import com.example.tasarmprojesi.model.Post
+import com.example.tasarmprojesi.viewmodel.SharedViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
@@ -20,6 +22,8 @@ class PostDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var commentsAdapter: CommentsAdapter
     private val db = FirebaseFirestore.getInstance()
+
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,17 +36,16 @@ class PostDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Post detaylarını al ve göster
         val post = arguments?.getParcelable<Post>("post")
         displayPostDetails(post)
 
-        // RecyclerView setup
         setupRecyclerView()
 
-        // Yorumları yükle
-        post?.id?.let { loadComments(it) }
+        post?.id?.let {
+            loadComments(it)
+            fetchCommentCount(it)
+        }
 
-        // Yorum gönderme butonunun click listener'ını ayarla
         binding.sendCommentButton.setOnClickListener {
             val commentText = binding.commentEditText.text.toString()
             if (commentText.isNotEmpty()) {
@@ -74,7 +77,6 @@ class PostDetailFragment : Fragment() {
             .orderBy("timestamp")
             .addSnapshotListener { value, error ->
                 if (error != null) {
-                    // Log error or show to the user
                     return@addSnapshotListener
                 }
                 val comments = value?.map { document ->
@@ -84,8 +86,16 @@ class PostDetailFragment : Fragment() {
             }
     }
 
+    private fun fetchCommentCount(postId: String) {
+        db.collection("Posts").document(postId).collection("Comments")
+            .get()
+            .addOnSuccessListener { documents ->
+                val commentCount = documents.size()
+                updateCommentCountInFirestore(postId, commentCount.toLong())
+            }
+    }
+
     private fun sendComment(postId: String, commentText: String) {
-        // Mevcut oturum açmış kullanıcının e-posta adresini al
         val userEmail = FirebaseAuth.getInstance().currentUser?.email
 
         userEmail?.let { email ->
@@ -97,15 +107,25 @@ class PostDetailFragment : Fragment() {
             db.collection("Posts").document(postId).collection("Comments").add(newComment)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "Yorum gönderildi!", Toast.LENGTH_SHORT).show()
-
+                    fetchCommentCount(postId)
                 }
                 .addOnFailureListener {
                     Toast.makeText(requireContext(), "Yorum gönderilemedi :(", Toast.LENGTH_SHORT).show()
-
                 }
         }
     }
 
+    private fun updateCommentCountInFirestore(postId: String, commentCount: Long) {
+        val postRef = db.collection("Posts").document(postId)
+
+        postRef.update("commentCount", commentCount)
+            .addOnSuccessListener {
+                sharedViewModel.notifyCommentAdded(postId, commentCount)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Yorum sayısı güncellenemedi: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -6,20 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasarmprojesi.adapter.ProfilRecylerAdapter
 import com.example.tasarmprojesi.databinding.FragmentProfileBinding
 import com.example.tasarmprojesi.model.Kullanici
 import com.example.tasarmprojesi.model.Post
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.firestore
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
