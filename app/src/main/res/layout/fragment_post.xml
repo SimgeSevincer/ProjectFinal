@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="43dp"
-        android:layout_height="35dp"
+        android:layout_width="46dp"
+        android:layout_height="39dp"
         android:layout_marginTop="608dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
