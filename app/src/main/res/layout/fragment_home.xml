@@ -268,9 +268,9 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="107dp"
+                android:layout_width="114dp"
                 android:layout_height="66dp"
-                android:src="@drawable/diyet_isvec"
+                android:src="@drawable/isvec1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -311,7 +311,7 @@
                 android:id="@+id/imageView20"
                 android:layout_width="104dp"
                 android:layout_height="65dp"
-                android:src="@drawable/vegan"
+                android:src="@drawable/vegan1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.666"
@@ -348,17 +348,19 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="145dp"
                 android:layout_height="222dp"
-                android:src="@drawable/gulutensiz"
+                android:src="@drawable/gluten1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.773" />
+                app:layout_constraintVertical_bias="0.882" />
+
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
