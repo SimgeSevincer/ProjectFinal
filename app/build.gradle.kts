@@ -1,8 +1,8 @@
 plugins {
+    //id("com.android.application")
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    //id("com.google.gms.google-services")
     id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id ("kotlin-parcelize")
 
@@ -75,7 +75,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    //implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.google.firebase:firebase-auth-ktx")
@@ -84,8 +83,8 @@ dependencies {
 
     implementation ("com.squareup.picasso:picasso:2.8")
 
-    implementation("com.google.android.gms:play-services-auth:21.2.0")
-    implementation("androidx.credentials:credentials:1.3.0-alpha04")
-    implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha04")
+    //implementation("com.google.android.gms:play-services-auth:21.2.0")
+    //implementation("androidx.credentials:credentials:1.3.0-alpha04")
+    //implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha04")
 
 }
