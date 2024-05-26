@@ -12,7 +12,20 @@
           "package_name": "com.example.tasarmprojesi"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "665842979709-eq5ft71kre13rt4kkf7d0uojq6ku29m6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tasarmprojesi",
+            "certificate_hash": "ff9270829abf4c0f4b1fc1e4715e8bf155360897"
+          }
+        },
+        {
+          "client_id": "665842979709-0sqmmith2fig6m780gjr3jd26mbcvfq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCEWTfDaDwRj_iNUlonsqvD2mABV3UqcOg"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665842979709-0sqmmith2fig6m780gjr3jd26mbcvfq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

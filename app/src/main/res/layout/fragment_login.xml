@@ -14,16 +14,16 @@
         android:src="@drawable/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="368dp"
         android:background="@color/white"
         android:drawableStart="@drawable/baseline_person_24"
         android:hint="  Email"
@@ -53,12 +53,12 @@
         android:id="@+id/buttonCreateAccount"
         android:layout_width="324dp"
         android:layout_height="49dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="#F4A3A3"
         android:onClick="createAccountButton"
         android:text="Create an Account"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
@@ -77,12 +77,24 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCreateAccount"
         app:layout_constraintVertical_bias="0.0" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/googleSignInBtn"
+        android:layout_width="364dp"
+        android:layout_height="54dp"
+        app:buttonSize="wide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+        app:layout_constraintVertical_bias="0.345" />
+
     <TextView
         android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="126dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="248dp"
         android:layout_marginEnd="127dp"
         android:text="Welcome Back!"
         android:textColor="#000000"
