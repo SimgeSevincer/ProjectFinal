@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "665842979709-nt1igkdvvpa00ftcr9t2mmacqkgkmo58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tasarmprojesi",
+            "certificate_hash": "8928a6405971f8b2ef41dbb555c3a3e5f0f2ce3e"
+          }
+        },
+        {
+          "client_id": "665842979709-vlom6vbav588a92rrrpbs41mt57km371.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tasarmprojesi",
+            "certificate_hash": "c1e50ce09a02bd557ae76e744896f33b5e8c7dde"
+          }
+        },
+        {
           "client_id": "665842979709-0sqmmith2fig6m780gjr3jd26mbcvfq0.apps.googleusercontent.com",
           "client_type": 3
         }
