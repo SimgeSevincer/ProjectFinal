@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3E9E2F3">
+    android:background="#F6F0F0">
 
     <!-- Ad ve Soyad -->
 
@@ -52,9 +52,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/postCardView"
         android:layout_width="379dp"
-        android:layout_height="381dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="490dp"
+        android:gravity="center"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +65,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="#88BEE5F6">
 
             <!-- Gönderi Resmi -->
 
@@ -75,12 +75,11 @@
 
             <ImageView
                 android:id="@+id/postImageView"
-                android:layout_width="354dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_width="392dp"
+                android:layout_height="352dp"
+                android:layout_marginTop="4dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.64"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/add_image" />
@@ -97,12 +96,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/postImageView" />
+                app:layout_constraintTop_toBottomOf="@+id/postImageView"
+                app:layout_constraintVertical_bias="0.931" />
 
             <Button
                 android:id="@+id/shareButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#9AD33C6F"
                 android:text="Gönderiyi Paylaş"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

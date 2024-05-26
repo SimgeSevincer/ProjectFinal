@@ -163,6 +163,9 @@
         <action
             android:id="@+id/action_kullaniciDetayFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_kullaniciDetayFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
 </navigation>

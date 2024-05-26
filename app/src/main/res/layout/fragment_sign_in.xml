@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A1E0D3F6"
+    android:background="#F6F0F0"
     tools:context=".SignInFragment">
 
     <androidx.cardview.widget.CardView
@@ -53,18 +53,19 @@
 
             <Button
                 android:id="@+id/btnSignUp"
-                android:layout_width="190dp"
-                android:layout_height="71dp"
+                android:layout_width="143dp"
+                android:layout_height="0dp"
                 android:layout_below="@+id/editTextPassword"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="81dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="148dp"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="83dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="167dp"
                 android:onClick="signUpButton"
-                android:text="Kayıt ol" />
+                android:text="Kayıt ol"
+                android:backgroundTint="#F4A3A3"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -76,7 +77,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="51dp"
         android:text="Create New Account"
-        android:textColor="#8E24AA"
+        android:textStyle="italic"
+        android:textColor="#272029"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,12 +93,13 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="10dp"
-        android:text="Already Registered? Log in here"
+        android:text="Don't you have an account yet? Sign up here!"
         android:textColor="#8E24AA"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

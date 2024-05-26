@@ -14,6 +14,7 @@
         android:src="@drawable/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -22,13 +23,15 @@
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="340dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         android:layout_marginTop="368dp"
+        android:layout_marginBottom="81dp"
         android:background="@color/white"
         android:drawableStart="@drawable/baseline_person_24"
         android:hint="  Email"
         android:inputType="textEmailAddress"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,35 +52,19 @@
         app:layout_constraintStart_toStartOf="@+id/editTextEmail"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
-    <Button
-        android:id="@+id/buttonCreateAccount"
-        android:layout_width="324dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="#F4A3A3"
-        android:onClick="createAccountButton"
-        android:text="Create an Account"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="143dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="191dp"
         android:backgroundTint="#F4A3A3"
         android:onClick="loginButton"
         android:text="Login"
-        app:layout_constraintBottom_toBottomOf="@+id/imageLogin"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCreateAccount"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="@+id/buttonCreateAccount"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCreateAccount"
-        app:layout_constraintVertical_bias="0.0" />
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
     <TextView
         android:id="@+id/welcomeBack"

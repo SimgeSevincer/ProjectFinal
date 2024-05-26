@@ -72,7 +72,7 @@ class SignInFragment : Fragment()  {
                 Toast.makeText(requireContext(),"Email ve şifre giriniz..",Toast.LENGTH_LONG).show()
             }else{
                 auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
-                    //succes
+                    //success
                     findNavController().navigate(R.id.action_signInFragment_to_kullaniciDetayFragment)
                 }.addOnFailureListener {
                     Toast.makeText(requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()

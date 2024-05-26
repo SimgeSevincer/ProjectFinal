@@ -185,6 +185,7 @@ class KullaniciDetayFragment : Fragment() {
                         Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_LONG).show()
                     }
                 }
+                findNavController().navigate(R.id.action_kullaniciDetayFragment_to_homeFragment)
             }
         }
 
