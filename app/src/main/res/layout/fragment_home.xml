@@ -17,6 +17,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="118dp"
+            android:layout_height="27dp"
+            android:src="@drawable/signature"
+            tools:layout_editor_absoluteX="293dp" />
+
         <TextView
             android:id="@+id/textView22"
             android:layout_width="219dp"
