@@ -22,12 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_background"
-        android:textSize="18sp"
-        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/articleImage"
         app:layout_constraintTop_toBottomOf="@id/articleImage"
         tools:text="21 Nisan 2024" />
+
 
     <TextView
         android:id="@+id/articleName"
@@ -35,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:textColor="#FF0000"
-        android:textSize="27sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,40 +45,34 @@
         tools:text="Makale Başlığı" />
 
     <TextView
+        android:id="@+id/articleCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:background="@drawable/rounded_background"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/articleName"
+        tools:text="Makale Kategorisi" />
+
+
+    <TextView
         android:id="@+id/articleDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/articleName"
+        app:layout_constraintTop_toBottomOf="@id/articleCategory"
         tools:text="Makale Açıklaması" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/articleDescription">
-
-        <TextView
-            android:id="@+id/articleFavCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Favori begenen Sayısı: 10" />
-
-        <ImageView
-            android:id="@+id/favoriteIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/baseline_favorite_24" />
-    </LinearLayout>
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -87,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/articleFavCount"
+        app:layout_constraintTop_toBottomOf="@+id/articleDescription"
         app:layout_constraintVertical_bias="0.995"
         app:menu="@menu/menu" />
 

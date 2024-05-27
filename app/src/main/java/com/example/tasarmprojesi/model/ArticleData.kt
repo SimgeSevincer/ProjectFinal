@@ -42,6 +42,33 @@ class ArticleData(context: Context) {
             "Toplumda işlenmiş gıdaların hayatımızdan çıkarılmasını söylerken gluteni hayatımızdan çıkardığımızda daha kolay zayıflama algısı ya da daha sağlıklı olma düşüncesi tamamen yanlıştır. Sağlıklı bir kişinin glütensiz beslenmesi yarar yerine ileriki dönemde kişiye zarar vermektedir",
             "2024-05-25",
             12
+        ),
+        Article(
+            "5",
+            "Yaşam",
+            "https://diyetisyengozdeavinci.com.tr/uploads/2024/02/stres-ve-beslenme-iliskisi.jpg",
+            "Stres ve Beslenme",
+            "Stres ve kaygı, kortizol hormonunun salgılanmasına neden olur. Bu hormon yağ hücrelerindeki yakıtın serbest bırakılmasına yardımcı olur ve ani yemek yeme isteğine yol açar. Bu durum genellikle yüksek kalorili ve düşük besin değerine sahip gıdaların tüketilmesiyle sonuçlanır. Bu hızlı kalori alımı, yağın bel bölgesinde birikmesine ve sağlık sorunlarına yol açabilir.",
+            "2024-05-26",
+            11
+        ),
+        Article(
+            "6",
+            "Spor",
+            "https://www.mapfre.com.tr/blog/media/2022/01/fitness-nedir-1.jpg",
+            "Fitness' ın Faydaları",
+            "Fiziksel sağlık için kalp ve dolaşımı güçlendirir, kilo kontrolü sağlar, kas gücünü artırır. Zihinsel sağlık için stresi azaltır, ruh halini iyileştirir, odaklanmayı artırır. Dayanıklılığı artırır, kemik sağlığını korur, uyku kalitesini artırır. Kendine güveni artırır, yaşam süresini uzatır.",
+            "2024-05-27",
+            18
+        ),
+        Article(
+            "7",
+            "Yaşam",
+            "https://www.mataramasu.co/cdn/shop/articles/yaz-donemi-su-tuketimi-nasil-olmali.webp?v=1656056250&width=2048",
+            "Su Tüketimi",
+            "Su tüketimi, vücudu hidrate eder, cildi nemlendirir ve sağlıklı bir cilt görünümü sağlar. Sindirim sistemini düzenler, metabolizmayı hızlandırır ve tokluk hissi vererek kilo kontrolüne yardımcı olur. Zihinsel ve fiziksel performansı artırır, enerji seviyelerini yükseltir ve bağışıklık sistemini destekler.",
+            "2024-08-28",
+            19
         )
     )
 

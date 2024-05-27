@@ -20,34 +20,71 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.tabs.TabLayout
-            android:layout_width="match_parent"
+        <!-- Kategori Seçimi -->
+        <TextView
+            android:id="@+id/categoryAll"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Tümü"
+            app:layout_constraintEnd_toStartOf="@+id/categoryHealth"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:foregroundTint="#FFFFFF"
-                android:text="DİYET"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="20dp" />
+        <TextView
+            android:id="@+id/categoryHealth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Sağlık"
+            app:layout_constraintEnd_toStartOf="@+id/categorySport"
+            app:layout_constraintStart_toEndOf="@+id/categoryAll"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SPOR"
-                tools:layout_editor_absoluteX="153dp"
-                tools:layout_editor_absoluteY="637dp" />
+        <TextView
+            android:id="@+id/categorySport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Spor"
+            app:layout_constraintEnd_toStartOf="@+id/categoryLife"
+            app:layout_constraintStart_toEndOf="@+id/categoryHealth"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="YAŞAM"
-                tools:layout_editor_absoluteX="274dp"
-                tools:layout_editor_absoluteY="-5dp" />
-        </com.google.android.material.tabs.TabLayout>
+        <TextView
+            android:id="@+id/categoryLife"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Yaşam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/categorySport"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Diğer bileşenler buraya gelebilir -->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Title -->
