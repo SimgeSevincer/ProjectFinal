@@ -12,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -60,15 +59,12 @@ class KullaniciDetayFragment : Fragment() {
     ): View? {
 
         _binding = FragmentKullaniciDetayBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
 
         auth = Firebase.auth
         firestore = Firebase.firestore
         storage = Firebase.storage
 
         return binding.root
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_kullanici_detay, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,64 +75,6 @@ class KullaniciDetayFragment : Fragment() {
         binding.editTextDOB.setOnClickListener {
             showDatePickerDialog()
         }
-        /*
-        binding.radioGroupGender.setOnCheckedChangeListener { group, checkedId ->
-            val selectedRadioButtonId = binding.radioGroupGender.checkedRadioButtonId
-            val selectedRadioButton = binding.radioGroupGender.findViewById<RadioButton>(selectedRadioButtonId)
-            val selectedOptionText = selectedRadioButton?.text.toString()
-            println("Seçilen RadioButton ID'si: $selectedRadioButtonId")
-            println("Seçilen seçenek: $selectedOptionText")
-        } */
-
-
-        /*
-        binding.btnSignUp2.setOnClickListener {
-
-            val uuid = UUID.randomUUID()
-            val imageName = "$uuid.jpg"
-
-            val reference = storage.reference
-            val imageReference = reference.child("imageskullanici").child(imageName)
-
-
-
-            if (selectedPicture != null){
-                imageReference.putFile(selectedPicture!!).addOnSuccessListener{
-
-                    val uploadPictureReference = storage.reference.child("imageskullanici").child(imageName)
-                    uploadPictureReference.downloadUrl.addOnSuccessListener {
-
-                        val downloadUrl = it.toString()
-                        if(auth.currentUser != null){
-                            val kullaniciMap = hashMapOf<String, Any>()
-                            kullaniciMap.put("downloadUrlk",downloadUrl)
-                            kullaniciMap.put("name",binding.editTextName.text.toString())
-                            kullaniciMap.put("bdate",binding.editTextDOB.text.toString())
-                            kullaniciMap.put("height",binding.editTextHeight.text.toString())
-                            kullaniciMap.put("weight",binding.editTextWeight.text.toString())
-                            kullaniciMap.put("userEmailk", auth.currentUser!!.email!!)
-                            kullaniciMap.put("date", Timestamp.now())
-
-                            firestore.collection("Kullanici").add(kullaniciMap).addOnSuccessListener {
-                                findNavController().navigate(R.id.action_kullaniciDetayFragment_to_profileFragment)
-
-                            }.addOnFailureListener {
-                                Toast.makeText(requireContext(),it.localizedMessage, Toast.LENGTH_LONG).show()
-                            }
-                        }
-                    }
-
-                }.addOnFailureListener {
-                    Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_LONG).show()
-                }
-            }
-
-
-
-            //val action = kullaniciDetayFragmentDirections.actionKullaniciDetayFragmentToProfilFragment3()
-            //Navigation.findNavController(it).navigate(action)
-        }
-*/
 
         binding.btnSignUp2.setOnClickListener {
 
@@ -190,9 +128,6 @@ class KullaniciDetayFragment : Fragment() {
         }
 
 
-
-
-
         binding.imageView.setOnClickListener {
             //openGallery()
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
@@ -210,10 +145,6 @@ class KullaniciDetayFragment : Fragment() {
 
             }
         }
-
-
-
-
     }
 
 
@@ -259,11 +190,6 @@ class KullaniciDetayFragment : Fragment() {
                 //permission denied
                 Toast.makeText(requireContext(),"Permission needed!", Toast.LENGTH_LONG).show()
             }
-
         }
     }
-
-
-
-
 }

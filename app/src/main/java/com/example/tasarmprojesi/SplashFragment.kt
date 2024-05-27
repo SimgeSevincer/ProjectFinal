@@ -27,25 +27,16 @@ class SplashFragment : Fragment() {
     ): View? {
 
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
-
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_user_giris, container, false)
         return  binding.root
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_splash, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Handler(Looper.getMainLooper()).postDelayed({
-            //val action = SplashFragmentDirections.action_splashFragment_to_skipFragment()
             Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_skipFragment)
 
         }, 5000)
-
-        //super.onViewCreated(view, savedInstanceState)
-
-
     }
 
 
