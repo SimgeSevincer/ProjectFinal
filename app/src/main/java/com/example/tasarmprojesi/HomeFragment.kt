@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.tasarmprojesi.databinding.FragmentHomeBinding
-//import com.example.tasarmprojesi.databinding.FragmentSkipBinding
 import com.example.tasarmprojesi.model.Kullanici
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-//import com.squareup.picasso.Picasso
 
 
 class HomeFragment : Fragment() {
@@ -60,11 +58,8 @@ class HomeFragment : Fragment() {
     }
 
 
-
     private fun getDataHome(){
-
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
-
         db.collection("Kullanici").whereEqualTo("userEmailk",currentUserEmail).orderBy("date",
             Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             if (error != null){
@@ -74,7 +69,6 @@ class HomeFragment : Fragment() {
                     if(!value.isEmpty){
                         val documents2 = value.documents
 
-
                         for (document in documents2){
                             val name = document.get("name") as String
                             val useremail = document.get("userEmailk") as String
@@ -83,21 +77,13 @@ class HomeFragment : Fragment() {
                             val height = document.get("height") as String
                             val weight = document.get("weight") as String
 
-
                             val kullanici = Kullanici(useremail,downloadUrl,name,bdate,weight,height)
-                            //postArrayList.add(kullanici)
-
                             binding.textView.text = name
-
-
                         }
-
-
                     }
                 }
             }
         }
-
     }
 
     override fun onDestroyView() {

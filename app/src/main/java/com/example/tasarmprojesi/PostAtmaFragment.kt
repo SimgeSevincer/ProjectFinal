@@ -31,11 +31,9 @@ import java.util.UUID
 
 
 class PostAtmaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
 
     private var _binding: FragmentPostAtmaBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var  activityResultLauncher : ActivityResultLauncher<Intent>
     private lateinit var permissionLauncher : ActivityResultLauncher<String>
     var selectedPicture : Uri? = null
@@ -49,7 +47,6 @@ class PostAtmaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         _binding = FragmentPostAtmaBinding.inflate(inflater, container, false)
 
@@ -58,8 +55,6 @@ class PostAtmaFragment : Fragment() {
         storage = Firebase.storage
 
         return binding.root
-
-        //return inflater.inflate(R.layout.fragment_post_atma, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -123,7 +118,6 @@ class PostAtmaFragment : Fragment() {
 
             }
         }
-
     }
 
     private  fun registerLauncher(){

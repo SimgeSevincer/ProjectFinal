@@ -21,7 +21,6 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var postArrayList: ArrayList<Post>
@@ -98,7 +97,6 @@ class ProfileFragment : Fragment() {
                 if (value != null) {
                     if (!value.isEmpty) {
                         val documents = value.documents
-
                         for (document in documents) {
                             val name = document.get("name") as String
                             val useremail = document.get("userEmailk") as String
