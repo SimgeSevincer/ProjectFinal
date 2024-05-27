@@ -19,37 +19,48 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="118dp"
-            android:layout_height="27dp"
-            android:src="@drawable/signature"
-            tools:layout_editor_absoluteX="293dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="drawa" />
 
         <TextView
             android:id="@+id/textView22"
-            android:layout_width="219dp"
-            android:layout_height="58dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="28dp"
             android:text="Hiçbir şeye sınır koymamalısınız. Ne kadar hayal ederseniz o kadar ileriye gidebilirsiniz."
             android:textAlignment="center"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="73dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageView
             android:id="@+id/imageView11"
             android:layout_width="79dp"
             android:layout_height="94dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/handshake"
-            tools:layout_editor_absoluteX="294dp"
-            tools:layout_editor_absoluteY="32dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.492" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="181dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="36dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="37dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="3dp"
             android:text="Merhaba Laura!"
             android:textSize="25sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView22"
+            app:layout_constraintEnd_toStartOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,10 +70,12 @@
         android:id="@+id/cardView2"
         android:layout_width="356dp"
         android:layout_height="85dp"
+        android:layout_marginTop="56dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="234dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,20 +83,27 @@
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="226dp"
-                android:layout_height="26dp"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
                 android:text="Keşfetmek için Tıkla!"
                 android:textSize="16sp"
-                tools:layout_editor_absoluteX="87dp"
-                tools:layout_editor_absoluteY="29dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.61"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="60dp"
                 android:layout_height="84dp"
                 android:src="@drawable/socialmedia"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="0dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -93,7 +113,8 @@
         android:layout_height="42dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
-        tools:layout_editor_absoluteX="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="178dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,18 +130,21 @@
                 android:textAlignment="gravity"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.71"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="14dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="29dp"
                 android:layout_height="26dp"
+                android:layout_marginStart="24dp"
                 android:src="@drawable/signature"
-                tools:layout_editor_absoluteX="25dp"
-                tools:layout_editor_absoluteY="8dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -140,12 +164,17 @@
         android:id="@+id/textView11"
         android:layout_width="93dp"
         android:layout_height="18dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginBottom="287dp"
         android:text="Tümünü gör -->"
         android:textSize="13sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="356dp" />
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -192,7 +221,10 @@
                 android:layout_height="82dp"
                 android:foreground="@drawable/isvec1"
                 android:src="@tools:sample/avatars"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -230,7 +262,11 @@
                 android:layout_width="150dp"
                 android:layout_height="82dp"
                 android:foreground="@drawable/gluten1"
-                android:src="@tools:sample/avatars" />
+                android:src="@tools:sample/avatars"
+                app:layout_constraintBottom_toTopOf="@+id/textView15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -238,9 +274,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
         android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
         app:cardCornerRadius="10dp"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="526dp">
+        app:layout_constraintEnd_toStartOf="@+id/cardView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -266,17 +305,24 @@
                 android:layout_height="82dp"
                 android:foreground="@drawable/vegan1"
                 android:src="@tools:sample/avatars"
-                tools:layout_editor_absoluteX="-2dp" />
+                app:layout_constraintBottom_toTopOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView9"
         android:layout_width="150dp"
         android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="30dp"
         app:cardCornerRadius="10dp"
-        tools:layout_editor_absoluteX="211dp"
-        tools:layout_editor_absoluteY="526dp">
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        tools:layout_editor_absoluteX="211dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -301,7 +347,11 @@
                 android:layout_width="152dp"
                 android:layout_height="82dp"
                 android:foreground="@drawable/sutuketimi"
-                android:src="@tools:sample/avatars" />
+                android:src="@tools:sample/avatars"
+                app:layout_constraintBottom_toTopOf="@+id/textView17"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
