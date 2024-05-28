@@ -37,14 +37,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.constraintLayout2.setOnClickListener {
+        binding.cardView3.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_postFragment)
         }
         binding.textView11.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_articleFragment)
         }
-        binding.constraint1.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_articleDetailFragment)
+        binding.constraintLayout2.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_postAtmaFragment)
         }
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
                             val weight = document.get("weight") as String
 
                             val kullanici = Kullanici(useremail,downloadUrl,name,bdate,weight,height)
-                            binding.textView.text = name
+                            binding.textView.text = "Merhaba $name!"
                         }
                     }
                 }

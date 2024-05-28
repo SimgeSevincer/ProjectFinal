@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"> <!-- şekil olarak dikdörtgen seçilmiş -->
+    <solid android:color="#FFFFFF"/> <!-- arka plan rengi -->
+    <corners android:radius="600dp"/> <!-- köşe yuvarlaklığı -->
+</shape>

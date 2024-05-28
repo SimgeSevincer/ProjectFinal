@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasarmprojesi.adapter.ProfilRecylerAdapter
 import com.example.tasarmprojesi.databinding.FragmentProfileBinding
 import com.example.tasarmprojesi.model.Kullanici
 import com.example.tasarmprojesi.model.Post
+import com.example.tasarmprojesi.viewmodel.SharedViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -25,6 +27,8 @@ class ProfileFragment : Fragment() {
     private lateinit var db: FirebaseFirestore
     private lateinit var postArrayList: ArrayList<Post>
     private lateinit var profileAdapter: ProfilRecylerAdapter
+    private val sharedViewModel: SharedViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +67,7 @@ class ProfileFragment : Fragment() {
                         doc.toObject(Post::class.java)?.apply { id = doc.id }
                     } ?: emptyList())
                     profileAdapter.notifyDataSetChanged()
+
                 }
             }
     }
@@ -72,7 +77,43 @@ class ProfileFragment : Fragment() {
         setupUserDetails()
         setupSignOut()
         setupBottomNavigationView()
+        sharedViewModel.commentAdded.observe(viewLifecycleOwner, { pair ->
+            val (postId, newCommentCount) = pair
+            updatePostCommentCount(postId, newCommentCount)})
     }
+    private fun fetchCommentCount(postId: String): Long {
+        var commentCount: Long = 0
+        db.collection("Posts").document(postId).collection("Comments")
+            .get()
+            .addOnSuccessListener { documents ->
+                commentCount = documents.size().toLong()
+                updateCommentCountInFirestore(postId, commentCount)
+            }
+        return commentCount
+    }
+
+    private fun updateCommentCountInFirestore(postId: String, commentCount: Long) {
+        val postRef = db.collection("Posts").document(postId)
+
+        postRef.update("commentCount", commentCount)
+            .addOnSuccessListener {
+                sharedViewModel.notifyCommentAdded(postId, commentCount)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Yorum sayısı güncellenemedi: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
+
+    private fun updatePostCommentCount(postId: String, newCommentCount: Long) {
+        val post = postArrayList.find { it.id == postId }
+        post?.let {
+            it.commentCount = newCommentCount
+           profileAdapter.notifyItemChanged(postArrayList.indexOf(it))
+        }
+    }
+
 
     private fun setupUserDetails() {
         binding.textView34.text = auth.currentUser?.email

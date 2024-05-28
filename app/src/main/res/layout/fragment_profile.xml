@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3E9E2F3"
+    android:background="#F6F0F0"
     android:textAlignment="gravity"
     tools:context=".MainActivity">
 
@@ -44,17 +44,19 @@
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView32"
-            android:layout_width="158dp"
-            android:layout_height="143dp"
-            android:contentDescription="TODO"
-            app:layout_constraintBottom_toTopOf="@+id/textView34"
+            android:layout_width="156dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/profile"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView34"
@@ -131,19 +133,6 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/baseline_logout_24" />
 
-        <ImageView
-            android:id="@+id/imageView33"
-            android:layout_width="51dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="111dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView34"
-            app:layout_constraintEnd_toStartOf="@+id/imageView32"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/settings" />
 
         <androidx.recyclerview.widget.RecyclerView
 

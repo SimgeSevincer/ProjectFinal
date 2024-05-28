@@ -97,4 +97,6 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
 
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
 }

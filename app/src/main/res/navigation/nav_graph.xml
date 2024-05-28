@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_homeFragment_to_articleDetailFragment"
             app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_postAtmaFragment"
+            app:destination="@id/postAtmaFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
