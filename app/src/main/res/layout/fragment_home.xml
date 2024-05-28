@@ -21,9 +21,9 @@
 
         <TextView
             android:id="@+id/textView22"
-            android:layout_width="225dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="219dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="132dp"
             android:text="Hiçbir şeye sınır koymamalısınız. Ne kadar hayal ederseniz o kadar ileriye gidebilirsiniz."
             android:textAlignment="center"
@@ -44,15 +44,16 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="187dp"
-            android:layout_height="50dp"
+            android:layout_width="283dp"
+            android:layout_height="43dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="176dp"
             android:text="Merhaba Laura!"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
